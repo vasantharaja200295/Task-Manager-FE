@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Input } from "@/ui/input";
@@ -21,6 +21,7 @@ const schema = z.object({
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const {
     register,
@@ -31,10 +32,12 @@ const Login = () => {
   });
 
   useEffect(() => {
-    const res = verifyToken();
-    if (res) {
-      setToken(dispatch, { tokenVerified: res });
-      navigate("/dashboard"); // Navigate to dashboard if token is valid
+    if (location.pathname == "/") {
+      const res = verifyToken();
+      if (res) {
+        setToken(dispatch, { tokenVerified: res });
+        navigate("/dashboard"); // Navigate to dashboard if token is valid
+      }
     }
   }, []);
 
@@ -42,6 +45,7 @@ const Login = () => {
     const userData = await login(data);
     if (userData) {
       setUserData(dispatch, userData);
+      setToken(dispatch, { tokenVerified: true });
       navigate("/dashboard"); // Navigate to dashboard after successful login
     }
   };
