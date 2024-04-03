@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import FileNotFound from "@/pages/404";
-import { Login, Dashboard, Signup } from "@/pages";
+import { Login, Dashboard, Signup, Onboarding } from "@/pages";
 import AuthRoute from "./AuthRoutes";
 
 
@@ -14,6 +14,7 @@ const Index = () => {
         <Route path="/signup" element={<Signup />} />
         <Route element={<AuthRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/onboarding" element={<Onboarding />} />
         </Route>
         <Route path="*" element={<FileNotFound />} />
       </Routes>

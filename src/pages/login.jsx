@@ -46,7 +46,11 @@ const Login = () => {
     if (userData) {
       setUserData(dispatch, userData);
       setToken(dispatch, { tokenVerified: true });
-      navigate("/dashboard"); // Navigate to dashboard after successful login
+      if (!userData?.dept || !userData?.role || !userData?.onboading_flow_completed || !userData?.reports_to){
+        navigate("/onboarding");
+        return;
+      }
+      navigate("/dashboard"); 
     }
   };
 

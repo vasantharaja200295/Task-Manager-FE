@@ -35,3 +35,22 @@ export const signUp = async (payload) => {
     throw new Error(error?.response?.data?.messsage);
   }
 }
+
+export const getOnboardingData = async () =>{
+  try{
+      const {data} = await getData('onboarding');
+      return data.data
+  }catch (error){
+    throw new Error(error?.response?.data?.messsage)
+  }
+}
+
+
+export const setOnboardingData = async (payload) =>{
+  try{
+    const {data} = await postData('onboarding', payload);
+    return data;
+  }catch(error){
+    throw new Error(error?.response?.data?.message)
+  }
+}
