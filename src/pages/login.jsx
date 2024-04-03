@@ -90,7 +90,7 @@ const Login = () => {
             {isSubmitting ? (
               <Icon name="LoaderCircle" size={20} className="animate-spin" />
             ) : (
-              "Submit"
+              "Login"
             )}
           </Button>
           <div className="text-xs w-full text-center mt-2 *:text-xs">

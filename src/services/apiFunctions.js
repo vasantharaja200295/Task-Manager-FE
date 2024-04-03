@@ -25,3 +25,13 @@ export const getUserData = async () =>{
     throw new Error(error?.response?.data?.messsage)
   }
 }
+
+
+export const signUp = async (payload) => {
+  try {
+    const { data } = await postData('register', payload);
+    return data;
+  } catch (error) {
+    throw new Error(error?.response?.data?.messsage);
+  }
+}
