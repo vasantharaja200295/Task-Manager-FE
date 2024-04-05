@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { GET_USER_DATA } from "@/services/apiKeys";
 import { useDispatch } from "react-redux";
 import { setUserData } from "@/redux/user/actions";
+import Loader from "@/components/Loader";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      {(isFetching || isLoading) ? <div>Loading...</div> : <p>{JSON.stringify(data)}</p>}
+      {(isFetching || isLoading) ? <Loader size={45}/> : <p>{JSON.stringify(data)}</p>}
     </div>
   );
 };

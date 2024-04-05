@@ -4,7 +4,8 @@ import Dashboard from "./content/dashboard";
 import Boards from "./content/boards";
 import Tasks from "./content/tasks";
 import Onboarding from './onboarding'
+import MyTasks from './content/my-tasks'
 
 
 
-export {Login, Signup, Dashboard, Boards, Tasks, Onboarding};
+export {Login, Signup, Dashboard, Boards, Tasks, Onboarding, MyTasks};

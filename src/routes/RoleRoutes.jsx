@@ -2,7 +2,7 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Boards, Dashboard, Tasks } from "@/pages";
+import { Boards, Dashboard, MyTasks, Tasks } from "@/pages";
 
 const AdminRoutes = [
   {
@@ -32,6 +32,10 @@ const UserRoutes = [
     path: "/tasks",
     component: <Tasks />,
   },
+  {
+    path: "/my-tasks",
+    component: <MyTasks />,
+  },
 ];
 
 const getRoutes = (isAdmin) => {
@@ -42,12 +46,12 @@ const RoleRoute = () => {
   const isAdmin = useSelector((state) => state.user.role === "hod");
   const routes = getRoutes(isAdmin);
   return (
-      <Routes>
-        {routes.map(({ path, component }) => (
-          <Route path={path} element={component} key={path} />
-        ))}
-        <Route path="*" element={<Navigate to="/404" />} key="/404"/>
-      </Routes>
+    <Routes>
+      {routes.map(({ path, component }) => (
+        <Route path={path} element={component} key={path} />
+      ))}
+      <Route path="*" element={<Navigate to="/404" />} key="/404" />
+    </Routes>
   );
 };
 
