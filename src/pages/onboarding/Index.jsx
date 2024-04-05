@@ -16,6 +16,8 @@ import { Label } from "@/ui/label";
 import DeptSelector from "./deptSelector";
 import RoleSelector from "./roleSelector";
 import ReportsToSelector from "./reportsToSelector";
+import ROUTES from "@/routes/routes";
+import { ROLES } from "@/routes/constants";
 import { Button } from "@/ui/button";
 import Icon from "@/components/Icon";
 import Loader from "@/components/Loader";
@@ -47,7 +49,7 @@ const Index = () => {
     try {
       const res = await handleOnboardingData(payload);
       if (res.status === 200) {
-        navigate('/dashboard')
+        navigate(ROUTES.DASHBOARD)
       }
     } catch (error) {
       console.log(error);
@@ -56,7 +58,7 @@ const Index = () => {
 
   const handleRoleSelect = (selectedRole) => {
     setRole(selectedRole);
-    if (selectedRole === "hod") {
+    if (selectedRole === ROLES.HOD) {
       setReportsTo(null);
     }
   };
@@ -74,12 +76,12 @@ const Index = () => {
     if (!dept || !role) {
       return true;
     }
-    return !!(role === "faculty" && !reportsTo);
+    return !!(role === ROLES.FACULTY && !reportsTo);
   };
 
   useEffect(()=>{
     if(onboardingFlowCompleted){
-      navigate('/dashboard')
+      navigate(ROUTES.DASHBOARD)
     }
   }, [])
 

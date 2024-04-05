@@ -12,10 +12,11 @@ import { login } from "@/services/apiFunctions";
 import { setUserData } from "@/redux/user/actions";
 import { verifyToken } from "@/services/serviceFunctions";
 import { setToken } from "@/redux/auth/actions";
+import ROUTES from "@/routes/routes";
 
 const schema = z.object({
   username: z.string().min(1, "username is Requrired"),
-  password: z.string().min(2, "Password must be 8 characters"),
+  password: z.string().min(8, "Password must be 8 characters"),
 });
 
 const Login = () => {
@@ -32,11 +33,11 @@ const Login = () => {
   });
 
   useEffect(() => {
-    if (location.pathname == "/") {
+    if (location.pathname == ROUTES.ROOT) {
       const res = verifyToken();
       if (res) {
         setToken(dispatch, { tokenVerified: res });
-        navigate("/dashboard"); // Navigate to dashboard if token is valid
+        navigate(ROUTES.DASHBOARD);
       }
     }
   }, []);
@@ -47,10 +48,10 @@ const Login = () => {
       setUserData(dispatch, userData);
       setToken(dispatch, { tokenVerified: true });
       if (!userData?.dept || !userData?.role || !userData?.onboading_flow_completed || !userData?.reports_to){
-        navigate("/onboarding");
+        navigate(ROUTES.ONBOARDING);
         return;
       }
-      navigate("/dashboard"); 
+      navigate(ROUTES.DASHBOARD); 
     }
   };
 
@@ -103,7 +104,7 @@ const Login = () => {
               variant="link"
               className="p-0 underline"
               onClick={() => {
-                navigate("/signup");
+                navigate(ROUTES.SIGNUP);
               }}
             >
               Sign Up

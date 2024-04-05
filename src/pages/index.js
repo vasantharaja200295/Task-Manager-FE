@@ -1,8 +1,8 @@
-import Login from "./login";
-import Signup from "./signup";
-import Dashboard from "./dashboard";
-import Boards from "./boards";
-import Tasks from "./tasks";
+import Login from "./auth/login";
+import Signup from "./auth/signup";
+import Dashboard from "./content/dashboard";
+import Boards from "./content/boards";
+import Tasks from "./content/tasks";
 import Onboarding from './onboarding'
 
 

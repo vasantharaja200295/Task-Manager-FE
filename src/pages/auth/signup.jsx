@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { signUp } from "@/services/apiFunctions";
+import ROUTES from "@/routes/routes";
 
 const schema = z.object({
   username: z.string().min(1, "Username is Required"),
@@ -39,7 +40,7 @@ const Signup = () => {
     try{
       const res = await handleSignUp(data);
       if(res.status === 200){
-        navigate('/login')
+        navigate(ROUTES.LOGIN)
       }
     }catch (error){
       console.log(error)
@@ -159,7 +160,7 @@ const Signup = () => {
               variant="link"
               className="p-0 underline"
               onClick={() => {
-                navigate("/login");
+                navigate(ROUTES.LOGIN);
               }}
             >
               Login
