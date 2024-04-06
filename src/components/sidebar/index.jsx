@@ -15,10 +15,10 @@ const Index = () => {
     const routes = getNavRoutes(isAdmin);
 
   return (
-    <div className={` h-full w-[${expanded ? '340px' : '60px'}]`}>
+    <div className={` h-screen w-[${expanded ? '300px' : '60px'}] bg-primary-foreground shadow-md`}>
         <nav className=' h-full flex flex-col shadow-sm'>
             <div className=' p-4 pb-2 flex justify-between items-center'>
-                <h4 className={` overflow-hidden transition-all ${expanded ? "w-auto mr-4" : "w-0"}`}>TaskManager</h4>
+                <h3 className={` overflow-hidden transition-all font-bold ${expanded ? "w-auto mr-4" : "w-0"} text-primary`}>TaskManager</h3>
                 <Button variant='outline' size='icon' onClick={()=>setExpanded(!expanded)}>
                     {
                         expanded ? <Icon name="ChevronLeft" /> : <Icon name="ChevronRight" />
@@ -29,7 +29,7 @@ const Index = () => {
                 {
                     routes.map((item)=>(
                         <ToolTip key={item.id} Content={item.title} expanded={expanded}>
-                            <SideBarItem item={item} expanded={expanded} />
+                            <SideBarItem item={item} active={locationn.pathname === item.path} expanded={expanded} />
                         </ToolTip>
                     ))
                 }
