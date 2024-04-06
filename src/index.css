@@ -74,6 +74,6 @@
     @apply scroll-m-20 text-lg font-medium tracking-tight font-poppins;
   }
   p{
-    @apply leading-7 [&:not(:first-child)]:mt-6;
+    @apply leading-7;
   }
 }

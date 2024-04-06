@@ -2,7 +2,7 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Boards, Dashboard, MyTasks, Tasks } from "@/pages";
+import { Boards, Dashboard, MyTasks, Profile, Tasks } from "@/pages";
 
 const AdminRoutes = [
   {
@@ -16,6 +16,10 @@ const AdminRoutes = [
   {
     path: "/tasks",
     component: <Tasks />,
+  },
+  {
+    path: "/profile",
+    component: <Profile />,
   },
 ];
 
@@ -35,6 +39,10 @@ const UserRoutes = [
   {
     path: "/my-tasks",
     component: <MyTasks />,
+  },
+  {
+    path: "/profile",
+    component: <Profile />,
   },
 ];
 

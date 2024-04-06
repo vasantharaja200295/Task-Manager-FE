@@ -7,6 +7,7 @@ const ROUTES = {
     BOARDS:'/app/boards',
     TASKS:'/app/tasks',
     MYTASKS:'/app/my-tasks',
+    PROFILE:'/app/profile',
 }
 
 

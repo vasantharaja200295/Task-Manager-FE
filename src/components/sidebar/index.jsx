@@ -15,7 +15,7 @@ const Index = () => {
     const routes = getNavRoutes(isAdmin);
 
   return (
-    <div className={` h-screen w-[${expanded ? '300px' : '60px'}] bg-primary-foreground shadow-md`}>
+    <div className={` h-screen w-[${expanded ? '300px' : '60px'}] bg-white shadow-md`}>
         <nav className=' h-full flex flex-col shadow-sm'>
             <div className=' p-4 pb-2 flex justify-between items-center'>
                 <h3 className={` overflow-hidden transition-all font-bold ${expanded ? "w-auto mr-4" : "w-0"} text-primary`}>TaskManager</h3>
