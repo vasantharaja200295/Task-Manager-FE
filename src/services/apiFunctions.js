@@ -54,3 +54,13 @@ export const setOnboardingData = async (payload) =>{
     throw new Error(error?.response?.data?.message)
   }
 }
+
+export const getTasks = async ({queryKey:[_key, isAdmin]}) => {
+  try {
+    const  {data}  = await postData('tasks/get-tasks', {isAdmin});
+    console.log(data)
+    return data.data;
+  } catch (error) {
+    throw new Error(error?.response?.data?.messsage);
+  }
+}
