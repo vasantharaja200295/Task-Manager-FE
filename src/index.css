@@ -25,7 +25,7 @@
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 262.1 83.3% 57.8%;
-    --radius: 0.75rem;
+    --radius: 0.5rem;
   }
 
   .dark {
@@ -62,7 +62,7 @@
     @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl font-poppins;
   }
   h2{
-    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-poppins;
+    @apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-poppins;
   }
   h3{
     @apply scroll-m-20 text-2xl font-semibold tracking-tight font-poppins;
@@ -75,5 +75,8 @@
   }
   p{
     @apply leading-7;
+  }
+  button{
+    @apply font-poppins;
   }
 }

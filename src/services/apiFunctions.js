@@ -58,9 +58,27 @@ export const setOnboardingData = async (payload) =>{
 export const getTasks = async ({queryKey:[_key, isAdmin]}) => {
   try {
     const  {data}  = await postData('tasks/get-tasks', {isAdmin});
-    console.log(data)
     return data.data;
   } catch (error) {
+    throw new Error(error?.response?.data?.messsage);
+  }
+}
+
+export const addTask = async (payload) => {
+  try {
+    const { data } = await postData('tasks/add-task', payload);
+    return data;
+  } catch (error) {
+    throw new Error(error?.response?.data?.messsage);
+  }
+}
+
+
+export const getUsersList = async ({queryKey:[_key, dept_id]}) =>{
+  try{
+    const {data} = await postData('list-users', {dept_id});
+    return data.data;
+  }catch{
     throw new Error(error?.response?.data?.messsage);
   }
 }
