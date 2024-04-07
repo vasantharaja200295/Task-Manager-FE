@@ -76,7 +76,7 @@ const Index = () => {
   };
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onOpenChange={()=>setOpen(!open)}>
       <DialogTrigger asChild>
         <Button className="gap-2" onClick={() => setOpen(true)}>
           <Icon name={"Plus"} size={20} />
@@ -116,7 +116,7 @@ const Index = () => {
           </div>
         </div>
         <DialogFooter className="font-poppins gap-2">
-          <DialogClose className=" text-sm">Cancel</DialogClose>
+          <DialogClose className=" text-sm" onClick={()=>setOpen(false)}>Cancel</DialogClose>
           <Button disabled={disabled} onClick={() => handleAddTask(payload)}>
             {isPending ? <Loader size={20} /> : "Add Task"}
           </Button>
