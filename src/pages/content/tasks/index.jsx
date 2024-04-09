@@ -16,10 +16,12 @@ const Tasks = () => {
   const { data, isLoading, isFetching } = useQuery({
     queryKey: [GET_TASKS, payload],
     queryFn: getTasks,
+    enabled:false
   });
   return (
     <div>
-      <div>
+      <div className=" px-4 pt-4 flex items-center justify-between">
+        <h3 className=" text-primary">Viewing All Tasks</h3>
         <AddTaskDialog/>
       </div>
       <Table data={data} isLoading={isLoading || isFetching}/>

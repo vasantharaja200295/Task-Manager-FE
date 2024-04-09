@@ -6,7 +6,7 @@ import Loader from "../Loader";
 const Index = ({ data, isLoading }) => {
   const columns = getColumns();
   return (
-    <div className=" h-[79vh] w-full p-3">
+    <div className=" h-[77.5vh] w-full p-3">
       {!isLoading ? (
         <TableComponent
           columns={columns || []}
