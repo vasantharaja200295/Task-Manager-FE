@@ -30,7 +30,14 @@ const Index = () => {
   const [disabled, setDisabled] = useState(true);
   const [open, setOpen] = useState(false);
   const queryClient = useQueryClient();
-  const created_by = useSelector((state) => state.user._id);
+  const adminUser = useSelector((state) => state.user);
+
+  const createdBy ={
+    _id: adminUser._id,
+    display_name: adminUser.display_name,
+    email: adminUser.email,
+    dept: adminUser.dept
+  }
 
   const setButtonDisabled = () => {
     if (
@@ -56,13 +63,13 @@ const Index = () => {
   const payload = {
     task_name: title,
     description: desc,
-    due_date: date?.toDateString(),
-    assigned_to: assignedTo?.assignedTo,
-    email: assignedTo?.assignedToEmail,
-    created_at: new Date().toDateString(),
-    created_by: created_by,
+    due_date: new Date(date),
+    assigned_to: assignedTo,
+    created_at: new Date(),
+    dept:createdBy?.dept,
+    created_by: createdBy,
+    status:"assigned",
   };
-
   const handleAddTask = async (payload) => {
     try {
       const res = await mutateAddTask(payload);
@@ -118,7 +125,7 @@ const Index = () => {
         <DialogFooter className="font-poppins gap-2">
           <DialogClose className=" text-sm" onClick={()=>setOpen(false)}>Cancel</DialogClose>
           <Button disabled={disabled} onClick={() => handleAddTask(payload)}>
-            {isPending ? <Loader size={20} /> : "Add Task"}
+            {isPending ? <Loader size={20} color="#fff"/> : "Add Task"}
           </Button>
         </DialogFooter>
       </DialogContent>

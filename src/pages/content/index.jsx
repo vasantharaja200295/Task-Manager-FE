@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { GET_USER_DATA } from "@/services/apiKeys";
 import { useDispatch } from "react-redux";
 import { setUserData } from "@/redux/user/actions";
+import Loader from "@/components/Loader";
 
 const Layout = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Layout = () => {
     queryKey: [GET_USER_DATA],
     queryFn: getUserData,
     enabled: true,
+    refetchOnWindowFocus:false,
     keepPreviousData: true,
   });
 
@@ -23,13 +25,22 @@ const Layout = () => {
       setUserData(dispatch, data);
     }
   }, [data, dispatch]);
+  if (isLoading || isFetching){
+    return (
+      <div className=" h-screen w-screen flex items-center justify-center">
+        <Loader size={50}/>
+      </div>
+    )
+  }
   return (
-    <div className=" flex flex-row">
+    <div className=" flex flex-row h-screen">
       <SideBar />
-      <div className=" w-screen h-screen overflow-hidden py-2">
+      <div className=" w-screen h-full overflow-hidden py-2">
         <Header data={data} />
-        <div className="h-full w-full overflow-hidden p-5 px-6 bg-zinc-100">
-          <RoleRoute />
+        <div className="h-[93.1vh] w-full overflow-hidden p-5 px-6  bg-zinc-100">
+          <div className=" w-full h-full bg-white rounded-md shadow-sm">
+            <RoleRoute />
+          </div>
         </div>
       </div>
     </div>

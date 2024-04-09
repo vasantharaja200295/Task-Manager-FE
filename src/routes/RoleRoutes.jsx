@@ -33,10 +33,6 @@ const UserRoutes = [
     component: <Boards />,
   },
   {
-    path: "/tasks",
-    component: <Tasks />,
-  },
-  {
     path: "/my-tasks",
     component: <MyTasks />,
   },

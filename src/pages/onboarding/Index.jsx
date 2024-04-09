@@ -127,7 +127,7 @@ const Index = () => {
               onClick={handleOnboarding}
             >
               {isOnboardingPending ? (
-                <Loader />
+                <Loader color="#ffffff"/>
               ) : (
                 <>
                   Continue <Icon name="ArrowRight" />

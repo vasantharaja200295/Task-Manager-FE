@@ -36,12 +36,6 @@ const userRoutes = [
         icon: "Kanban"
     },
     {
-        id: 3,
-        path: ROUTES.TASKS,
-        title: "Tasks",
-        icon: "ListChecks"
-    }, 
-    {
         id: 4,
         path: ROUTES.MYTASKS,
         title: "My Tasks",

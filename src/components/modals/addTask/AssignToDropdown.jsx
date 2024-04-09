@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Select,
-  SelectLabel,
   SelectContent,
   SelectItem,
   SelectTrigger,
@@ -22,7 +21,14 @@ const AssignToDropdown = ({ setAssignedTo }) => {
     staleTime: 1000 * 60 * 5,
   });
   const handleValueChange = (value) =>{
-    setAssignedTo({assignedToEmail:data?.find((user) => user?._id === value)?.email, assignedTo:value})
+    const temp = (data?.find((user) => user?._id === value))
+    const selectedUser = {
+      _id: temp?._id,
+      display_name: temp?.display_name,
+      email: temp?.email,
+      dept: temp?.dept
+    }
+    setAssignedTo(selectedUser)
   }
   return (
     <div className="  w-full">
