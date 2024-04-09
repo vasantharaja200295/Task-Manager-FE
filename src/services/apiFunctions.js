@@ -82,3 +82,12 @@ export const getUsersList = async ({queryKey:[_key, dept_id]}) =>{
     throw new Error(error?.response?.data?.messsage);
   }
 }
+
+export const deleteTask = async (payload) => {
+  try {
+    const { data } = await postData('tasks/delete-task', payload);
+    return data;
+  } catch (error) {
+    throw new Error(error?.response?.data?.messsage);
+  }
+}

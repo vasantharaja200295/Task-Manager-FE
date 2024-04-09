@@ -2,8 +2,9 @@ import Icon from "../Icon";
 import { Button } from "@/ui/button";
 import moment from "moment";
 import TaskStatusSelector from "@/components/selectors/taskStatusSelector";
+import Loader from "../Loader";
 
-const getColumns = (handleDeleteTask, handleUpdateTaskStatus) => {
+const getColumns = (handleDeleteTask, handleUpdateTaskStatus, deleteTaskLoading) => {
     
     return ( [
         {
@@ -92,8 +93,8 @@ const getColumns = (handleDeleteTask, handleUpdateTaskStatus) => {
             header:undefined,
             cell: ({row}) => {
               return(
-                  <Button className="" variant="destructive" onClick={()=>{handleDeleteTask(row.original.parentId, row.getValue('_id'))}}>
-                    <Icon name="Trash2" size={20} />  
+                  <Button className="" variant="destructive" onClick={()=>{handleDeleteTask(row.getValue('_id'))}}>
+                    {deleteTaskLoading ? <Loader color="#fff"/> : <Icon name="Trash" size={20} />}
                   </Button>
               )
             },
@@ -103,7 +104,7 @@ const getColumns = (handleDeleteTask, handleUpdateTaskStatus) => {
             header:undefined,
             cell: ({row}) => {
               return(
-                <Button  variant="ghost" onClick={()=>{handleDeleteTask(row.original.parentId, row.getValue('_id'))}}>
+                <Button  variant="ghost" >
                   <Icon name="EllipsisVertical" size={20} />  
                 </Button>
             )

@@ -16,7 +16,6 @@ const Tasks = () => {
   const { data, isLoading, isFetching } = useQuery({
     queryKey: [GET_TASKS, payload],
     queryFn: getTasks,
-    enabled:false
   });
   return (
     <div>
