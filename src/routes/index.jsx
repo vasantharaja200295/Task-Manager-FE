@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import FileNotFound from "@/pages/states/404";
 import { Login, Signup } from "@/pages";
-import Onboarding from '@/pages/Onboarding/index';
+import Onboarding from '@/pages/onboarding/Onboarding';
 import AuthRoute from "./AuthRoutes";
 import Layout from "@/pages/content";
 

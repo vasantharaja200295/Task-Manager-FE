@@ -22,7 +22,7 @@ import { Button } from "@/ui/button";
 import Icon from "@/components/Icon";
 import Loader from "@/components/Loader";
 
-const Index = () => {
+const Onboarding = () => {
   const [dept, setDept] = useState();
   const [role, setRole] = useState();
   const [reportsTo, setReportsTo] = useState();
@@ -141,4 +141,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Onboarding;
