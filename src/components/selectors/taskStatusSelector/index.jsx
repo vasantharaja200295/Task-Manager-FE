@@ -9,7 +9,6 @@ import {
 import { TASK_STATUS_LIST, TASK_STATUS } from "./constants";
 
 const Index = ({ currentState }) => {
-  console.log(TASK_STATUS[currentState].label.toString());
   return (
     <Select defaultValue={TASK_STATUS[currentState].value}>
       <SelectTrigger>

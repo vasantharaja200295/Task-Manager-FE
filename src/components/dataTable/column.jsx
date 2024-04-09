@@ -102,7 +102,6 @@ const getColumns = (handleDeleteTask, handleUpdateTaskStatus) => {
             accessorKey:"_id",
             header:undefined,
             cell: ({row}) => {
-              console.log(row.getValue("_id"))
               return(
                 <Button  variant="ghost" onClick={()=>{handleDeleteTask(row.original.parentId, row.getValue('_id'))}}>
                   <Icon name="EllipsisVertical" size={20} />  
