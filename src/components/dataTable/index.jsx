@@ -7,7 +7,7 @@ import { deleteTask, updateTaskStatus } from "@/services/apiFunctions";
 import { useQueryClient } from "@tanstack/react-query";
 import { GET_TASKS } from "@/services/apiKeys";
 
-const Index = ({ data, isLoading }) => {
+const Index = ({ data, isLoading , isAdmin }) => {
   const queryClient = useQueryClient();
 
   const { mutateAsync: mutateDeleteTask } = useMutation({
@@ -40,7 +40,7 @@ const Index = ({ data, isLoading }) => {
     }
   };
 
-  const columns = getColumns(handleDeleteTask, handleUpdateTaskStatus);
+  const columns = getColumns(isAdmin, handleDeleteTask, handleUpdateTaskStatus);
   return (
     <div className=" h-[77.5vh] w-full p-3">
       {!isLoading ? (
