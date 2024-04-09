@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "@/components/sidebar";
 import Header from "@/components/header";
 import RoleRoute from "@/routes/RoleRoutes";
@@ -11,12 +11,13 @@ import Loader from "@/components/Loader";
 
 const Layout = () => {
   const dispatch = useDispatch();
+  const [enabled, setEnabled] = useState(false);
 
   const { data, isLoading, isFetching } = useQuery({
     queryKey: [GET_USER_DATA],
     queryFn: getUserData,
-    enabled: true,
-    refetchOnWindowFocus:false,
+    enabled,
+    refetchOnWindowFocus: false,
     keepPreviousData: true,
   });
 
@@ -25,12 +26,18 @@ const Layout = () => {
       setUserData(dispatch, data);
     }
   }, [data, dispatch]);
-  if (isLoading || isFetching){
+
+  useEffect(() => {
+    setEnabled(true);
+    return () => setEnabled(false);
+  }, []);
+
+  if (isLoading || isFetching) {
     return (
       <div className=" h-screen w-screen flex items-center justify-center">
-        <Loader size={50}/>
+        <Loader size={50} />
       </div>
-    )
+    );
   }
   return (
     <div className=" flex flex-row h-screen">

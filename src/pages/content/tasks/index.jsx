@@ -20,7 +20,7 @@ const Tasks = () => {
   return (
     <div>
       <div className=" px-4 pt-4 flex items-center justify-between">
-        <h3 className=" text-primary">Viewing All Tasks</h3>
+        <h3 className=" text-primary">View All Tasks</h3>
         <AddTaskDialog/>
       </div>
       <Table data={data} isLoading={isLoading || isFetching}/>

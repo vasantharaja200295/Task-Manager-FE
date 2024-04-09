@@ -4,7 +4,7 @@ import moment from "moment";
 import TaskStatusSelector from "@/components/selectors/taskStatusSelector";
 import Loader from "../Loader";
 
-const getColumns = (handleDeleteTask, handleUpdateTaskStatus, deleteTaskLoading) => {
+const getColumns = (handleDeleteTask, handleUpdateTaskStatus) => {
     
     return ( [
         {
@@ -84,7 +84,7 @@ const getColumns = (handleDeleteTask, handleUpdateTaskStatus, deleteTaskLoading)
             },
             cell:({row}) => {
               return(
-                <TaskStatusSelector currentState={row.getValue('status')}/>
+                <TaskStatusSelector currentState={row.getValue('status')} setTaskStatus={handleUpdateTaskStatus} taskId={row.getValue('_id')}/>
               )
             },
             size: 200
@@ -94,7 +94,7 @@ const getColumns = (handleDeleteTask, handleUpdateTaskStatus, deleteTaskLoading)
             cell: ({row}) => {
               return(
                   <Button className="" variant="destructive" onClick={()=>{handleDeleteTask(row.getValue('_id'))}}>
-                    {deleteTaskLoading ? <Loader color="#fff"/> : <Icon name="Trash" size={20} />}
+                    <Icon name="Trash" size={20} />
                   </Button>
               )
             },

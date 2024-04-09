@@ -91,3 +91,12 @@ export const deleteTask = async (payload) => {
     throw new Error(error?.response?.data?.messsage);
   }
 }
+
+export const updateTaskStatus = async (payload) => {
+  try {
+    const { data } = await postData('tasks/update-status', payload);
+    return data;
+  } catch (error) {
+    throw new Error(error?.response?.data?.messsage);
+  }
+}

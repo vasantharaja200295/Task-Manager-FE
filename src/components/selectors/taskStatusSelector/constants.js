@@ -3,10 +3,22 @@ export const TASK_STATUS = {
         label:'Assigned',
         value:'assigned'
     },
+    in_progress:{
+        label:'In Progress',
+        value:'in_progress'
+    },
     completed:{
         label:'Completed',
         value:'completed'
     },
+    pending:{
+        label:'Pending',
+        value:'pending'
+    },
+    cancelled:{
+        label:'Cancelled',
+        value:'cancelled'
+    }
     
 }
 
