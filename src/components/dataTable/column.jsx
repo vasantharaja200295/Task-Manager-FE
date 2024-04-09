@@ -2,6 +2,7 @@ import Icon from "../Icon";
 import { Button } from "@/ui/button";
 import moment from "moment";
 import TaskStatusSelector from "@/components/selectors/taskStatusSelector";
+import TaskDetailsModal from "@/components/modals/taskDetails";
 
 const getColumns = (isAdmin, handleDeleteTask, handleUpdateTaskStatus) => {
   return [
@@ -147,9 +148,7 @@ const getColumns = (isAdmin, handleDeleteTask, handleUpdateTaskStatus) => {
       header: undefined,
       cell: ({ row }) => {
         return (
-          <Button variant="ghost">
-            <Icon name="EllipsisVertical" size={20} />
-          </Button>
+          <TaskDetailsModal data={row.original}/>
         );
       },
       size: 0,
