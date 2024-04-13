@@ -23,7 +23,7 @@ const Tasks = () => {
         <h3 className=" text-primary">View All Tasks</h3>
         <AddTaskDialog/>
       </div>
-      <Table data={data} isLoading={isLoading || isFetching}/>
+      <Table data={data} isLoading={isLoading || isFetching} isAdmin={isAdmin}/>
     </div>
   );
 };

@@ -5,7 +5,8 @@ import Boards from "./content/boards";
 import Tasks from "./content/tasks";
 import MyTasks from './content/my-tasks';
 import Profile from './content/profile';
+import Department from './content/department';
 
 
 
-export {Login, Signup, Dashboard, Boards, Tasks, MyTasks, Profile};
+export {Login, Signup, Dashboard, Boards, Tasks, MyTasks, Profile, Department};

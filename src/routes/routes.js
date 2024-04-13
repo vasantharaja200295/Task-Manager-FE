@@ -8,6 +8,8 @@ const ROUTES = {
     TASKS:'/app/tasks',
     MYTASKS:'/app/my-tasks',
     PROFILE:'/app/profile',
+    DEPARTMENT:'/app/my-department',
+
 }
 
 
