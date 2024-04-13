@@ -127,7 +127,7 @@ const Onboarding = () => {
               onClick={handleOnboarding}
             >
               {isOnboardingPending ? (
-                <Loader color="#ffffff"/>
+                <Loader white={true}/>
               ) : (
                 <>
                   Continue <Icon name="ArrowRight" />

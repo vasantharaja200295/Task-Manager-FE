@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import SideBar from "@/components/sidebar";
 import Header from "@/components/header";
 import RoleRoute from "@/routes/RoleRoutes";
@@ -12,7 +12,6 @@ import Loader from "@/components/Loader";
 const Layout = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  console.log(user)
 
   const { data, isLoading, isFetching } = useQuery({
     queryKey: [GET_USER_DATA],

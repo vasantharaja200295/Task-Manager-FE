@@ -3,6 +3,7 @@ import { Button } from "@/ui/button";
 import moment from "moment";
 import TaskStatusSelector from "@/components/selectors/taskStatusSelector";
 import TaskDetailsModal from "@/components/modals/taskDetails";
+import colors from "@/colors";
 
 const getColumns = (isAdmin, handleDeleteTask, handleUpdateTaskStatus) => {
   return [
@@ -50,7 +51,7 @@ const getColumns = (isAdmin, handleDeleteTask, handleUpdateTaskStatus) => {
             className=" pl-0 hover:bg-transparent"
           >
             <p className=" mr-4 font-semibold text-lg text-black">Created On</p>
-            <Icon name="ArrowUpDown" size={19} color="#7c3aed" />
+            <Icon name="ArrowUpDown" size={19} color={colors.primary} />
           </Button>
         );
       },
@@ -72,7 +73,7 @@ const getColumns = (isAdmin, handleDeleteTask, handleUpdateTaskStatus) => {
             className=" pl-0 hover:bg-transparent"
           >
             <p className=" mr-4 font-semibold text-lg text-black">Due Date</p>
-            <Icon name="ArrowUpDown" size={19} color="#7c3aed" />
+            <Icon name="ArrowUpDown" size={19} color={colors.primary} />
           </Button>
         );
       },

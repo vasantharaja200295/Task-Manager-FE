@@ -125,7 +125,7 @@ const Index = () => {
         <DialogFooter className="font-poppins gap-2">
           <DialogClose className=" text-sm" onClick={()=>setOpen(false)}>Cancel</DialogClose>
           <Button disabled={disabled} onClick={() => handleAddTask(payload)}>
-            {isPending ? <Loader size={20} color="#fff"/> : "Add Task"}
+            {isPending ? <Loader size={20} white={true}/> : "Add Task"}
           </Button>
         </DialogFooter>
       </DialogContent>

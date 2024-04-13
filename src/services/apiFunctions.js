@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 import { getData, postData } from "./serviceFunctions";
 
-const basePath = import.meta.env.VITE_API_BASE_URL
+const basePath = import.meta.env.VITE_ENV === 'dev' ? import.meta.env.VITE_API_DEV_BASE_URL : import.meta.env.VITE_API_PROD_BASE_URL;
 
 export async function login(payload){
     try{
