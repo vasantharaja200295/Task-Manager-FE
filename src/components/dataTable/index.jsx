@@ -2,9 +2,8 @@ import React from "react";
 import { TableComponent } from "./table";
 import getColumns from "./column";
 import Loader from "../Loader";
-import { useMutation } from "@tanstack/react-query";
 import { deleteTask, updateTaskStatus } from "@/services/apiFunctions";
-import { useQueryClient } from "@tanstack/react-query";
+import { useQueryClient,useMutation } from "@tanstack/react-query";
 import { GET_TASKS } from "@/services/apiKeys";
 
 const Index = ({ data, isLoading , isAdmin }) => {

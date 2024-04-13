@@ -5,18 +5,19 @@ import RoleRoute from "@/routes/RoleRoutes";
 import { getUserData } from "@/services/apiFunctions";
 import { useQuery } from "@tanstack/react-query";
 import { GET_USER_DATA } from "@/services/apiKeys";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUserData } from "@/redux/user/actions";
 import Loader from "@/components/Loader";
 
 const Layout = () => {
   const dispatch = useDispatch();
-  const [enabled, setEnabled] = useState(false);
+  const user = useSelector((state) => state.user);
+  console.log(user)
 
   const { data, isLoading, isFetching } = useQuery({
     queryKey: [GET_USER_DATA],
     queryFn: getUserData,
-    enabled,
+    enabled:!user,
     refetchOnWindowFocus: false,
     keepPreviousData: true,
   });
@@ -27,10 +28,6 @@ const Layout = () => {
     }
   }, [data, dispatch]);
 
-  useEffect(() => {
-    setEnabled(true);
-    return () => setEnabled(false);
-  }, []);
 
   if (isLoading || isFetching) {
     return (
@@ -43,7 +40,7 @@ const Layout = () => {
     <div className=" flex flex-row h-screen">
       <SideBar />
       <div className=" w-screen h-full overflow-hidden py-2">
-        <Header data={data} />
+        <Header data={user} />
         <div className="h-[93.1vh] w-full overflow-hidden p-5 px-6  bg-zinc-100">
           <div className=" w-full h-full bg-white rounded-md shadow-sm">
             <RoleRoute />
