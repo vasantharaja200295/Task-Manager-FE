@@ -7,7 +7,7 @@ import Table from "@/components/dataTable";
 
 const Index = () => {
   const user = useSelector((state) => state.user);
-  const isAdmin = user.role === 'hod';
+  const isAdmin = false;
   const payload = {
     isAdmin,
     dept:user.dept,
