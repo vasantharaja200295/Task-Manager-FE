@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { signUp } from "@/services/apiFunctions";
 import ROUTES from "@/routes/routes";
+import { toastMessage } from "@/utils/helperFunctions";
 
 const schema = z.object({
   username: z.string().min(1, "Username is Required"),
@@ -40,10 +41,11 @@ const Signup = () => {
     try{
       const res = await handleSignUp(data);
       if(res.status === 200){
+        toastMessage("success", "Sign Up Successful");
         navigate(ROUTES.LOGIN)
       }
     }catch (error){
-      console.log(error)
+      toastMessage("error", error?.message);
     }
   };
 

@@ -5,6 +5,7 @@ import Loader from "../Loader";
 import { deleteTask, updateTaskStatus } from "@/services/apiFunctions";
 import { useQueryClient,useMutation } from "@tanstack/react-query";
 import { GET_TASKS } from "@/services/apiKeys";
+import { toastMessage } from "@/utils/helperFunctions";
 
 const Index = ({ data, isLoading , isAdmin }) => {
   const queryClient = useQueryClient();
@@ -20,22 +21,24 @@ const Index = ({ data, isLoading , isAdmin }) => {
   const handleUpdateTaskStatus = async (id, status) => {
     try {
       const res = await mutateUpdateTaskStatus({ id, status });
+      toastMessage('success', res?.message);
       if (res) {
         queryClient.invalidateQueries([GET_TASKS]);
       }
     } catch (error) {
-      console.log(error);
+      toastMessage('error', error?.message);
     }
   };
 
   const handleDeleteTask = async (id) => {
     try {
       const res = await mutateDeleteTask(id);
+      toastMessage('success', res?.message);
       if (res) {
         queryClient.invalidateQueries([GET_TASKS]);
       }
     } catch (error) {
-      console.log(error);
+      toastMessage('error', error?.message);
     }
   };
 

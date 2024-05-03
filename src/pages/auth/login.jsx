@@ -13,6 +13,7 @@ import { setUserData } from "@/redux/user/actions";
 import { verifyToken } from "@/services/serviceFunctions";
 import { setToken } from "@/redux/auth/actions";
 import ROUTES from "@/routes/routes";
+import { toastMessage } from "@/utils/helperFunctions";
 
 const schema = z.object({
   username: z.string().min(1, "username is Requrired"),
@@ -43,16 +44,22 @@ const Login = () => {
   }, []);
 
   const formSubmit = async (data) => {
-    const userData = await login(data);
-    if (userData) {
-      setUserData(dispatch, userData);
-      setToken(dispatch, { tokenVerified: true });
-      if (!userData?.dept || !userData?.role || !userData?.onboading_flow_completed || !userData?.reports_to){
-        navigate(ROUTES.ONBOARDING);
-        return;
+    try{
+      const userData = await login(data);
+      toastMessage("success", "Login Successful");
+      if (userData) {
+        setUserData(dispatch, userData);
+        setToken(dispatch, { tokenVerified: true });
+        if (!userData?.dept || !userData?.role || !userData?.onboading_flow_completed || !userData?.reports_to){
+          navigate(ROUTES.ONBOARDING);
+          return;
+        }
+        navigate(ROUTES.DASHBOARD); 
       }
-      navigate(ROUTES.DASHBOARD); 
+    }catch(error){
+      toastMessage("error", error?.message || 'Incorrect Email or Password');
     }
+    
   };
 
   return (

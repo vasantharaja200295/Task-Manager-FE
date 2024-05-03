@@ -8,6 +8,29 @@ import colors from "@/colors";
 const getColumns = (isAdmin, handleDeleteTask, handleUpdateTaskStatus) => {
   return [
     {
+      accessorKey: "created_at",
+      header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            className=" pl-0 hover:bg-transparent"
+          >
+            <p className=" mr-4 font-semibold text-lg text-black">Date</p>
+            <Icon name="ArrowUpDown" size={19} color={colors.primary} />
+          </Button>
+        );
+      },
+      cell: ({ row }) => {
+        const date = moment
+          .utc(row.getValue("created_at"))
+          .format("DD/MM/YYYY");
+        return <div className="text-left text-md font-medium ">{date}</div>;
+      },
+      size: 100,
+      sortingFns:'datetime'
+    },
+    {
       accessorKey: "task_name",
       header: () => {
         return (
@@ -40,28 +63,6 @@ const getColumns = (isAdmin, handleDeleteTask, handleUpdateTaskStatus) => {
         );
       },
       size: 200,
-    },
-    {
-      accessorKey: "created_at",
-      header: ({ column }) => {
-        return (
-          <Button
-            variant="ghost"
-            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className=" pl-0 hover:bg-transparent"
-          >
-            <p className=" mr-4 font-semibold text-lg text-black">Created On</p>
-            <Icon name="ArrowUpDown" size={19} color={colors.primary} />
-          </Button>
-        );
-      },
-      cell: ({ row }) => {
-        const date = moment
-          .utc(row.getValue("created_at"))
-          .format("DD/MM/YYYY");
-        return <div className="text-left text-md font-medium ">{date}</div>;
-      },
-      size: 100,
     },
     {
       accessorKey: "due_date",
