@@ -52,7 +52,7 @@ const Boards = () => {
   const handleDeleteTask = async (id) => {
     try {
       const res = await mutateDeleteTask(id);
-      toastMessage("success", res?.message);
+      toastMessage("success", 'Task deleted successfully');
       if (res) {
         queryClient.invalidateQueries([GET_TASKS]);
       }

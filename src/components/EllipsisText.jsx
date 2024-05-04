@@ -2,11 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "@/ui/tooltip";
 
-const EllipsisText = ({ text }) => {
+const EllipsisText = ({ text, className }) => {
   const [isOverflowing, setIsOverflowing] = useState(false);
   const textRef = useRef(null);
 
@@ -25,7 +24,7 @@ const EllipsisText = ({ text }) => {
           ref={textRef}
           className={`overflow-hidden line-clamp-5 ${
             isOverflowing ? "cursor-pointer" : ""
-          }`}
+          } ${className || ""}`}
           style={{ maxWidth: "100%" }} // Adjust the max width as needed
         >
           {text}
