@@ -21,6 +21,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addTask } from "@/services/apiFunctions";
 import Loader from "@/components/Loader";
 import { GET_TASKS } from "@/services/apiKeys";
+import { toastMessage } from "@/utils/helperFunctions";
 
 const Index = () => {
   const [assignedTo, setAssignedTo] = useState({});
@@ -76,9 +77,10 @@ const Index = () => {
       if (res) {
         setOpen(false);
         queryClient.invalidateQueries([GET_TASKS]);
+        toastMessage("success", "Task added successfully");
       }
     } catch (error) {
-      console.log(error);
+      toastMessage("error", error?.message);
     }
   };
 
@@ -124,7 +126,7 @@ const Index = () => {
         </div>
         <DialogFooter className="font-poppins gap-2">
           <DialogClose className=" text-sm" onClick={()=>setOpen(false)}>Cancel</DialogClose>
-          <Button disabled={disabled} onClick={() => handleAddTask(payload)}>
+          <Button disabled={disabled || isPending} onClick={() => handleAddTask(payload)}>
             {isPending ? <Loader size={20} white={true}/> : "Add Task"}
           </Button>
         </DialogFooter>

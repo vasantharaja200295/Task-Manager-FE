@@ -8,7 +8,6 @@ import {
 import Icon from "@/components/Icon";
 import moment from "moment";
 import StatusChips from '@/components/Tags/StatusChips'
-import { TASK_STATUS } from "@/components/selectors/taskStatusSelector/constants";
 
 const Index = ({ data }) => {
   return (
@@ -31,9 +30,6 @@ const Index = ({ data }) => {
           </div>
           <div className=" flex space-x-3">
             <h5>Status:</h5>
-            {/* <p className=" bg-primary/80 w-[100px] text-center  box-border  px-2 rounded-full text-white">
-              {TASK_STATUS[data?.status].label}
-            </p> */}
             <StatusChips status={data?.status}/>
           </div>
           <div className=" grid grid-cols-2 gap-4">
