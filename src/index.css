@@ -82,3 +82,15 @@
     @apply font-poppins;
   }
 }
+
+.rbc-header {
+  @apply h-10 flex items-center justify-center text-slate-700 font-poppins font-semibold;
+}
+
+.rbc-month-view, .rbc-time-view {
+  @apply font-poppins rounded-md;
+}
+
+.rbc-table-cell{
+  
+}

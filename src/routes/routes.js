@@ -9,7 +9,7 @@ const ROUTES = {
     MYTASKS:'/app/my-tasks',
     PROFILE:'/app/profile',
     DEPARTMENT:'/app/my-department',
-
+    CALENDER:'/app/calender',
 }
 
 
