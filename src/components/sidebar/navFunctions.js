@@ -10,24 +10,30 @@ const AdminRoutes = [
     },
     {
         id: 2,
+        path: ROUTES.CALENDER,
+        title: "Calender",
+        icon: "CalendarDays"
+    },
+    {
+        id: 3,
         path: ROUTES.BOARDS,
         title: "Boards",
         icon: "Kanban"
     },
     {
-        id: 3,
+        id: 4,
         path: ROUTES.TASKS,
         title: "Tasks",
         icon: "ListChecks"
     },
     {
-        id: 4,
+        id: 5,
         path: ROUTES.MYTASKS,
         title: "My Tasks",
         icon: "ClipboardList"
     },
     {
-        id: 5,
+        id: 6,
         path: ROUTES.DEPARTMENT,
         title: "My Department",
         icon: "School"
@@ -43,6 +49,12 @@ const userRoutes = [
     },
     {
         id: 2,
+        path: ROUTES.CALENDER,
+        title: "Calender",
+        icon: "CalendarDays"
+    },
+    {
+        id: 3,
         path: ROUTES.BOARDS,
         title: "Boards",
         icon: "Kanban"
