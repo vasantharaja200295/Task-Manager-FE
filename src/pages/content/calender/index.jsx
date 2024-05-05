@@ -133,9 +133,8 @@ const CustomEvent = ({ event }) => {
 
 const Index = () => {
   const { user } = useSelector((state) => state);
-  const isAdmin = user.role === "hod";
   const payload = {
-    isAdmin,
+    isAdmin: false,
     dept: user.dept,
   };
 
