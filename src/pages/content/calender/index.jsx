@@ -156,7 +156,7 @@ const Index = () => {
 
   return (
     <div className="h-screen">
-      <div className=" p-4">
+      <div className=" p-2">
         <h3>Today</h3>
         <h1 className="text-3xl font-bold text-primary mb-4">
           {format(new Date(), "PPP")}

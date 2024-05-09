@@ -6,8 +6,10 @@ import { deleteTask, updateTaskStatus } from "@/services/apiFunctions";
 import { useQueryClient,useMutation } from "@tanstack/react-query";
 import { GET_TASKS } from "@/services/apiKeys";
 import { toastMessage } from "@/utils/helperFunctions";
+import { useSelector } from "react-redux";
 
-const Index = ({ data, isLoading , isAdmin }) => {
+const Index = ({ data, isLoading , isAdmin, className }) => {
+  const { _id } = useSelector((state) => state.user);
   const queryClient = useQueryClient();
 
   const { mutateAsync: mutateDeleteTask } = useMutation({
@@ -20,7 +22,7 @@ const Index = ({ data, isLoading , isAdmin }) => {
 
   const handleUpdateTaskStatus = async (id, status) => {
     try {
-      const res = await mutateUpdateTaskStatus({ id, status });
+      const res = await mutateUpdateTaskStatus({ id, status, completed_by: _id });
       toastMessage('success', res?.message);
       if (res) {
         queryClient.invalidateQueries([GET_TASKS]);
@@ -44,11 +46,11 @@ const Index = ({ data, isLoading , isAdmin }) => {
 
   const columns = getColumns(isAdmin, handleDeleteTask, handleUpdateTaskStatus);
   return (
-    <div className=" h-[77.5vh] w-full p-3">
+    <div className={className || " h-[77.5vh] w-full p-3"}>
       {!isLoading ? (
         <TableComponent
           columns={columns || []}
-          data={data}
+          data={data || []}
           isLoading={isLoading}
         />
       ) : (

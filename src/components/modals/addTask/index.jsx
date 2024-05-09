@@ -69,6 +69,8 @@ const Index = () => {
     created_at: new Date(),
     dept:createdBy?.dept,
     created_by: createdBy,
+    completed_by:null,
+    completed_on:null,
     status:"assigned",
   };
   const handleAddTask = async (payload) => {
@@ -81,6 +83,11 @@ const Index = () => {
       }
     } catch (error) {
       toastMessage("error", error?.message);
+    }finally{
+      setAssignedTo({});
+      setDate();
+      setTitle("");
+      setDesc("");
     }
   };
 
