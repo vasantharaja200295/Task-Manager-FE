@@ -32,12 +32,12 @@ const AdminRoutes = [
         title: "My Tasks",
         icon: "ClipboardList"
     },
-    {
-        id: 6,
-        path: ROUTES.DEPARTMENT,
-        title: "My Department",
-        icon: "School"
-    }
+    // {
+    //     id: 6,
+    //     path: ROUTES.DEPARTMENT,
+    //     title: "My Department",
+    //     icon: "School"
+    // }
 ];
 
 const userRoutes = [

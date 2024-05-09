@@ -100,3 +100,13 @@ export const updateTaskStatus = async (payload) => {
     throw new Error(error?.response?.data?.messsage);
   }
 }
+
+
+export const getDashboardData = async () =>{
+  try{
+      const {data} = await getData('dashboard');
+      return data.data
+  }catch (error){
+    throw new Error(error?.response?.data?.messsage)
+  }
+}

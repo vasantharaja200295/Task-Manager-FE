@@ -50,7 +50,7 @@ const Login = () => {
       if (userData) {
         setUserData(dispatch, userData);
         setToken(dispatch, { tokenVerified: true });
-        if (!userData?.dept || !userData?.role || !userData?.onboading_flow_completed || !userData?.reports_to){
+        if (!userData?.onboading_flow_completed){
           navigate(ROUTES.ONBOARDING);
           return;
         }

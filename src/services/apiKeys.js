@@ -14,3 +14,7 @@ export const GET_TASKS = 'get-tasks';
 export const ADD_TASK = 'add-task';
 export const UPDATE_TASK = 'update-task';
 export const GET_USERS_LIST = 'get-users-list'
+
+
+// Dashboard
+export const GET_DASHBOARD_DATA = 'get-dashboard-data'
